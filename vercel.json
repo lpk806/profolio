@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "build": {
+    "command": "next build"
+  },
+  "outputDirectory": "out"
+}
