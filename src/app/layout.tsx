@@ -1,17 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Code_Pro } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const sourceCodePro = Source_Code_Pro({
-  subsets: ['latin'],
-  variable: '--font-source-code-pro',
-  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,11 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${sourceCodePro.variable} scroll-smooth`}
-    >
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+      <body className="text-gray-800">{children}</body>
     </html>
   );
 }
