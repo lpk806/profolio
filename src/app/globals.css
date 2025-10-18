@@ -2,34 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f8fafc; /* Lighter gray background */
-  color: #1f2937; /* Darker text */
+@layer base {
+  body {
+    @apply font-sans;
+  }
 }
 
-.font-mono {
-  font-family: 'Source Code Pro', monospace;
+.marquee {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.gradient-text {
-  background: linear-gradient(to right, #3b82f6, #14b8a6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.track {
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 40s linear infinite;
 }
 
-.skill-card,
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px -3px rgba(59, 130, 246, 0.2);
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
